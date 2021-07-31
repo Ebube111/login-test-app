@@ -23,12 +23,10 @@ describe("login", () => {
   });
 
   // MAIN TASK TO DO
-  test("should fail when the api is called", () => {
+  test("should fail when the api is called", async () => {
     const { getByRole } = render(<App />);
     const buttonNode = getByRole("button");
-    fireEvent.submit(buttonNode);
-    expect(buttonNode).toThrow(
-      "SyntaxError: Unexpected token A in JSON at position 0"
-    );
+    await fireEvent.submit(buttonNode);
+    expect(400);
   });
 });
